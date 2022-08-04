@@ -2,12 +2,14 @@
 
 This is the Backend for Homemade Bags Project
 
-### Features
+## EndPoints
 
-- Add new Product
-- See all your Products
-- Update a Specific Product
-- Delete a Specific Product
+- api/product
+  - Used to Create a new Product via a POST request and to Show exsiting products via GET request.
+- api/product/:ProductName
+  - Used to Update a perticular Product via PUT request
+- api/product/:ProductId
+  - Used to Delete a perticular Product via DELETE request
 
 ### Technologies Used
 
