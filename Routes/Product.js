@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const calculateDiscountPercentage = require("../Utils/Calulator");
 //Models
 const productModel = require("../Models/product.js");
 
@@ -21,9 +21,18 @@ router.route("/").get((req, res) => {
 //@access   Public
 
 router.route("/").post((req, res) => {
+  const discountPercentage = calculateDiscountPercentage(
+    req.body.price,
+    req.body.specialPrice
+  );
   const newProduct = new productModel({
+    code: req.body.code,
     name: req.body.name,
+    description: req.body.description,
     price: req.body.price,
+    specialPrice: req.body.specialPrice,
+    discountPercentage: discountPercentage,
+    imagePath: req.body.imagePath,
   });
   newProduct.save((err) => res.json(err || "Product Inserted Successfully"));
 });
@@ -32,12 +41,24 @@ router.route("/").post((req, res) => {
 //@desc     Update a specific Product
 //@access   Public
 
-router.route("/:productName").put((req, res) => {
+router.route("/:productCode").put((req, res) => {
+  const discountPercentage = calculateDiscountPercentage(
+    req.body.price,
+    req.body.specialPrice
+  );
   productModel.findOneAndUpdate(
-    { name: req.params.productName },
-    { name: req.body.name, price: req.body.price },
+    { code: req.params.productCode },
+    {
+      code: req.body.code,
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      specialPrice: req.body.specialPrice,
+      discountPercentage: discountPercentage,
+      imagePath: req.body.imagePath,
+    },
     { new: true },
-    (err) => res.send(err || `${req.params.productName} updated Successfully`)
+    (err) => res.send(err || `${req.params.productCode} updated Successfully`)
   );
 });
 
