@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const calculateDiscountPercentage = require("../Utils/Calulator");
+const Calculator = require("../Utils/Calulator");
 //Models
 const productModel = require("../Models/product.js");
 
@@ -21,7 +21,7 @@ router.route("/").get((req, res) => {
 //@access   Public
 
 router.route("/").post((req, res) => {
-  const discountPercentage = calculateDiscountPercentage(
+  const discountPercentage = Calculator.calculateDiscountPercentage(
     req.body.price,
     req.body.specialPrice
   );
@@ -42,7 +42,7 @@ router.route("/").post((req, res) => {
 //@access   Public
 
 router.route("/:productCode").put((req, res) => {
-  const discountPercentage = calculateDiscountPercentage(
+  const discountPercentage = Calculator.calculateDiscountPercentage(
     req.body.price,
     req.body.specialPrice
   );
