@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Calculator = require("../Utils/Calulator");
+const ApiUtil = require("../Utils/ApiUtil");
 //Models
 const productModel = require("../Models/product.js");
 
@@ -21,19 +21,7 @@ router.route("/").get((req, res) => {
 //@access   Public
 
 router.route("/").post((req, res) => {
-  const discountPercentage = Calculator.calculateDiscountPercentage(
-    req.body.price,
-    req.body.specialPrice
-  );
-  const newProduct = new productModel({
-    code: req.body.code,
-    name: req.body.name,
-    description: req.body.description,
-    price: req.body.price,
-    specialPrice: req.body.specialPrice,
-    discountPercentage: discountPercentage,
-    imagePath: req.body.imagePath,
-  });
+  const newProduct = new productModel(ApiUtil.getProductObject(req));
   newProduct.save((err) => res.json(err || "Product Inserted Successfully"));
 });
 
@@ -42,21 +30,9 @@ router.route("/").post((req, res) => {
 //@access   Public
 
 router.route("/:productCode").put((req, res) => {
-  const discountPercentage = Calculator.calculateDiscountPercentage(
-    req.body.price,
-    req.body.specialPrice
-  );
   productModel.findOneAndUpdate(
     { code: req.params.productCode },
-    {
-      code: req.body.code,
-      name: req.body.name,
-      description: req.body.description,
-      price: req.body.price,
-      specialPrice: req.body.specialPrice,
-      discountPercentage: discountPercentage,
-      imagePath: req.body.imagePath,
-    },
+    { ...ApiUtil.getProductObject(req) },
     { new: true },
     (err) => res.send(err || `${req.params.productCode} updated Successfully`)
   );
