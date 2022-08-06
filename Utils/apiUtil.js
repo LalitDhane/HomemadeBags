@@ -1,12 +1,12 @@
-const calulatorUtil = require("./calulatorUtil");
+const calculatorUtil = require("./calculatorUtil");
 
 class ApiUtil {
   static getProductObject(req) {
-    const discountPercentage = calulatorUtil.calculateDiscountPercentage(
+    const discountPercentage = calculatorUtil.calculateDiscountPercentage(
       req.body.price,
       req.body.specialPrice
     );
-    const prodcutObject = {
+    const productObject = {
       code: req.body.code,
       name: req.body.name,
       description: req.body.description,
@@ -15,7 +15,7 @@ class ApiUtil {
       discountPercentage: discountPercentage,
       imagePath: req.body.imagePath,
     };
-    return prodcutObject;
+    return productObject;
   }
 }
 

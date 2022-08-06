@@ -1,5 +1,5 @@
 //Calculator class has basic method for calculating discount percentage.
-class Calulator {
+class Calculator {
   static calculateDiscountPercentage(price, specialPrice) {
     let discount = price - specialPrice;
     let discountPercentage = (discount / price) * 100;
@@ -7,4 +7,4 @@ class Calulator {
   }
 }
 
-module.exports = Calulator;
+module.exports = Calculator;
