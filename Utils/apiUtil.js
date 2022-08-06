@@ -1,8 +1,8 @@
-const Calculator = require("./Calulator");
+const calulatorUtil = require("./calulatorUtil");
 
 class ApiUtil {
   static getProductObject(req) {
-    const discountPercentage = Calculator.calculateDiscountPercentage(
+    const discountPercentage = calulatorUtil.calculateDiscountPercentage(
       req.body.price,
       req.body.specialPrice
     );

@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const ApiUtil = require("../Utils/ApiUtil");
+const ApiUtil = require("../Utils/apiUtil");
 //Models
-const productModel = require("../Models/product.js");
+const productModel = require("../Models/productModel.js");
 
 // Product Api Routes
 

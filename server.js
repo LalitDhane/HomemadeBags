@@ -1,8 +1,8 @@
-require("./DatabaseConn");
+require("./databaseConnection");
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const productRoute = require(__dirname + "/Routes/Product.js");
+const productRoute = require(__dirname + "/Routes/productRoute");
 const port = process.env.port || 3001;
 
 //Middleware
