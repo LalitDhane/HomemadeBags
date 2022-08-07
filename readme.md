@@ -4,6 +4,7 @@ HomemadeBags is a one-of-a-kind e-commerce web application which sells and showc
 
 ### Technologies Used
 
+- Angular
 - NodeJs
 - ExpressJs
 - Mongodb
