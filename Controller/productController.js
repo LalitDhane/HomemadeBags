@@ -5,7 +5,7 @@ const productModel = require("../Models/productModel.js");
 
 const getProduct = async (req, res) => {
   try {
-    let user = await productModel.find({});
+    const user = await productModel.find({});
     res.send(user);
   } catch (error) {
     res.send(error);
