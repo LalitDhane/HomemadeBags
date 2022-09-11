@@ -4,7 +4,7 @@ const cors = require("cors");
 const router = require("./Routes/router");
 const morgan = require("morgan");
 const app = express();
-const port = process.env.port || 3001;
+const port = process.env.PORT || 3001;
 
 //Middleware
 app.use(express.json());
