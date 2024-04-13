@@ -1,25 +1,44 @@
 //User Model
 const userModel = require("../Models/userModel");
 
-const getUser = async (req, res) => {
+const loginUser = async (req, res) => {
   try {
-    const userData = await userModel.find({});
-    res.send(userData);
+    const userData = await userModel.findOne({
+      username: req.body.username,
+      password: req.body.password,
+    });
+    if (userData) {
+      res.status(200).json({
+        status: "success",
+        message: "You have logged in Successfully.",
+      });
+    } else {
+      res.status(401).json({
+        status: "failed",
+        message: "Invalid Username or Password. Please try again.",
+      });
+    }
   } catch (error) {
-    res.send(error);
+    res.status(500).json({
+      status: "error",
+      message: "Internal Server Error",
+    });
   }
 };
 
-const addUser = async (req, res) => {
+const signInUser = async (req, res) => {
   const user = new userModel({
     username: req.body.username,
     password: req.body.password,
   });
   try {
     const result = await user.save();
-    res.send(result);
+    res.send("User Created");
   } catch (error) {
-    res.send(error);
+    res.status(500).json({
+      status: "error",
+      message: "Internal Server Error",
+    });
   }
 };
 
@@ -28,8 +47,11 @@ const deleteUser = async (req, res) => {
     await userModel.findByIdAndDelete(req.params.id);
     res.send(`${req.params.id} deleted successfully.`);
   } catch (error) {
-    res.send(error);
+    res.status(500).json({
+      status: "error",
+      message: "Internal Server Error",
+    });
   }
 };
 
-module.exports = { getUser, addUser, deleteUser };
+module.exports = { loginUser, signInUser, deleteUser };

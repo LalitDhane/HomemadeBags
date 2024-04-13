@@ -31,15 +31,15 @@ router
 
 // -------------------------------------- User API routes ------------------------------- //
 
-//@route    Get api/users
-//@desc     get all users
+//@route    Post api/user/login
+//@desc     Login User
 //@access   public
-router.route("/api/users").get(userController.getUser);
+router.route("/api/user/login").post(userController.loginUser);
 
-//@route    Post api/users
-//@desc     Create new user
+//@route    Post api/user/signin
+//@desc     Sign In User
 //@access   public
-router.route("/api/users").post(userController.addUser);
+router.route("/api/user/signin").post(userController.signInUser);
 
 //@route    Delete api/user
 //@desc     Delete a user
