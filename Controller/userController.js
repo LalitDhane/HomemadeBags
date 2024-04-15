@@ -14,7 +14,7 @@ const loginUser = async (req, res) => {
         message: "You have logged in Successfully.",
       });
     } else {
-      res.status(401).json({
+      res.status(400).json({
         status: "failed",
         data: [],
         message: "Invalid Username or Password. Please try again.",
