@@ -4,7 +4,7 @@ Browse millions of products, compare prices, and checkout securely - all in one 
 
 ## Frontend Code
 
-<a href = "https://github.com/LalitDhane/HomemadeBags-Frontend"/>Frontend</a>
+<a href = "https://github.com/LalitDhane/Merchandize-frontend">Frontend</a>
 
 ## Live Demo
 

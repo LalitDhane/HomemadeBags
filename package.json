@@ -1,21 +1,21 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Homemade bags application server",
+  "description": "Merchandize application server",
   "main": "Server.js",
   "scripts": {
-    "start" : "node server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LalitDhane/HomemadeBags_Backend.git"
+    "url": "git+https://github.com/LalitDhane/Merchandize-backend.git"
   },
   "author": "Lalit Dhane",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LalitDhane/HomemadeBags_Backend/issues"
+    "url": "https://github.com/LalitDhane/Merchandize-backend/issues"
   },
-  "homepage": "https://github.com/LalitDhane/HomemadeBags_Backend#readme",
+  "homepage": "https://github.com/LalitDhane/Merchandize-backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
